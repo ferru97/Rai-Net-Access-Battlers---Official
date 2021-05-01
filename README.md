@@ -40,8 +40,7 @@ The main improvements concern:
 - Clean and comment the code
 - General improvements
 
-Open a PL on the *DEV* branch to propose a change
-Open an Issue to suggest a change, report a bug, or discuss a feature
+Open a PL on the *DEV* branch to propose a change or open an Issue to suggest a change, report a bug, or discuss a feature
 
 ## Contributions
 The content of this project itself is licensed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html)
