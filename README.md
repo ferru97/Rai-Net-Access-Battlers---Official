@@ -30,7 +30,7 @@ Thanks to docker containers and docker-compose starting a local multiplayer serv
 4. Open a terminal in *Server/* and run `docker-compose up -d --build` to instantiate all the services
 
 ### Important!
-The client game application and the server must have the same game version otherwise the client connection will be refused. So set the game version on the server set the *GAME_VERSION* variable on the *.env* file. To set the game version of the client game application set the public variable *Version* og the *Main_Menu* gameobject.
+The client game application and the server must have the same game version otherwise the client connection will be refused. To set the game version on the server set the *GAME_VERSION* variable on the *Server/.env* file. To set the game version of the client game application set the public variable *Version* of the *Main_Menu* gameobject.
 
 ## Contributions
 Feel free to contribute to this project!
