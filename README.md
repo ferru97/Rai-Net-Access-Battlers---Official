@@ -25,7 +25,7 @@ At run-time, each one of these services is dockerized and run via *docker-compos
 ## Start a local multiplayer serve
 Thanks to docker containers and docker-compose starting a local multiplayer server is pretty simple, follow these steps:
 1. (Optional) Change the credentials information on the  **.env** file
-2. Open the game project with Unity and open the script **NetInfo.cs** located in *Assets/Script/NetInfo.cs*. Here change the value of the variables  `HTTP_SERVER_INFO` and `MATCHMAKING_SERVER` replacing *rab-matchmaking.cloud* with your local machine IP
+2. Open the game project with Unity and open the script **NetInfo.cs** located in *Assets/Script/NetInfo.cs*. Here change the value of the variables  `HTTP_SERVER_INFO` and `MATCHMAKING_SERVER` replacing *192.168.1.20* with your local machine IP
 3. Compile the game and generate the build for your device
 4. Open a terminal in *Server/* and run `docker-compose up -d --build`
 
