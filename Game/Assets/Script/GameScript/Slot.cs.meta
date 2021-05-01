@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: e9cc0026ced61934e90094d3c7db768a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - placedCard: {instanceID: 0}
+  - player: {instanceID: 0}
+  - FirewallCubeA: {fileID: 1809345528240038, guid: 69e587559f21c1c42b9cf5f42f17ee33,
+      type: 2}
+  - FirewallCubeB: {fileID: 1892883105437962, guid: bfaf999297a653542bc2848496d44cea,
+      type: 2}
+  - FirewallCubeAB: {fileID: 1334043872594076, guid: 95be10f8c9b0ba647b6b2d3d28a947f4,
+      type: 2}
+  - canMouveTip: {fileID: 1837703996630470, guid: bbb403d270ee83e4ea49bbcf731ca0b4,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
