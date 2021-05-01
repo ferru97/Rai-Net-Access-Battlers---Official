@@ -27,7 +27,7 @@ Thanks to docker containers and docker-compose starting a local multiplayer serv
 1. (Optional) Change the credentials information on the  **.env** file
 2. Open the game project with Unity and open the script **NetInfo.cs** located in *Assets/Script/NetInfo.cs*. Here change the value of the variables  `HTTP_SERVER_INFO` and `MATCHMAKING_SERVER` replacing *192.168.1.20* with your local machine IP
 3. Compile the game and generate the build for your device
-4. Open a terminal in *Server/* and run `docker-compose up -d --build`
+4. Open a terminal in *Server/* and run `docker-compose up -d --build` to instantiate all the services
 
 ### Important!
 The client game application and the server must have the same game version otherwise the client connection will be refused. So set the game version on the server set the *GAME_VERSION* variable on the *.env* file. To set the game version of the client game application set the public variable *Version* og the *Main_Menu* gameobject.
