@@ -22,7 +22,7 @@ The backend implements four services:
 
 At run-time, each one of these services is dockerized and run via *docker-compose*
 
-## Start a local multiplayer serve
+## Start a local multiplayer server
 Thanks to docker containers and docker-compose starting a local multiplayer server is pretty simple, follow these steps:
 1. (Optional) Change the credentials information on the  **.env** file
 2. Open the game project with Unity and open the script **NetInfo.cs** located in *Assets/Script/NetInfo.cs*. Here change the value of the variables  `HTTP_SERVER_INFO` and `MATCHMAKING_SERVER` replacing *192.168.1.20* with your local machine IP
