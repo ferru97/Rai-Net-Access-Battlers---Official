@@ -177,7 +177,7 @@ public class Player : MonoBehaviour {
         else
         {
             if (cardScript.boost != null){
-                if (oldSlotScript.boardCoords==51 || oldSlotScript.boardCoords == 52)
+                if (oldSlotScript.boardCoords==51 || oldSlotScript.boardCoords == 52 || oldSlotScript.boardCoords==58 || oldSlotScript.boardCoords == 61)
                 {
                     return true;
                 }
@@ -192,6 +192,7 @@ public class Player : MonoBehaviour {
 
 
     int limit;
+    int limit_new;
     int noJumpBoost;
     bool canMouve(Slot check=null)
     {
@@ -202,9 +203,13 @@ public class Player : MonoBehaviour {
         cardScript = cardSelected.GetComponent<Card>();
         oldSlotScript = cardScript.cardPosition.GetComponent<Slot>();
         limit = oldSlotScript.boardCoords;
+        limit_new = slotScript.boardCoords;
 
         while (limit >= 8)
             limit -= 8;
+
+        while (limit_new >= 8)
+            limit_new -= 8;
 
         if (((slotScript.boardCoords == oldSlotScript.boardCoords+8) || (slotScript.boardCoords == oldSlotScript.boardCoords -8 ) ||
             (slotScript.boardCoords == oldSlotScript.boardCoords + 1) || (slotScript.boardCoords == oldSlotScript.boardCoords -1)) && !slotScript.isFirewalled())
@@ -235,10 +240,7 @@ public class Player : MonoBehaviour {
                     (slotScript.boardCoords == oldSlotScript.boardCoords + 7) || (slotScript.boardCoords == oldSlotScript.boardCoords + 9)  ||
                     (slotScript.boardCoords == oldSlotScript.boardCoords - 7) || (slotScript.boardCoords == oldSlotScript.boardCoords - 9) ) && !slotScript.isFirewalled())
                 {
-                    if (slotScript.boardCoords == oldSlotScript.boardCoords + 2 && limit >= 6)
-                        return false;
-
-                    if (slotScript.boardCoords == oldSlotScript.boardCoords - 2 && limit <= 1)
+                    if(Mathf.Abs(limit_new-limit)>3)
                         return false;
 
                     //noJumpBoost position where may be a firewall
