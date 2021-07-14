@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class NetInfo
 {
-    public static string HTTP_SERVER_INFO = "http://192.168.1.20:3000/info";
-    public static string MATCHMAKING_SERVER = "http://192.168.1.20:8000";
+    public static string HTTP_SERVER_INFO = "http://rab-matchmaking.ddns.net:3000/info";
+    public static string MATCHMAKING_SERVER = "http://rab-matchmaking.ddns.net:8000";
 
 
 

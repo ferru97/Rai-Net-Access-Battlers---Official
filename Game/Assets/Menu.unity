@@ -11147,7 +11147,7 @@ MonoBehaviour:
   mainMenu: {fileID: 222093750}
   OptionMenu: {fileID: 0}
   inputIP: {fileID: 0}
-  version: 0.4
+  version: 0.5
   panelUpdate: {fileID: 412830580}
   up_ver: {fileID: 534080108}
   up_info: {fileID: 1708063682}
