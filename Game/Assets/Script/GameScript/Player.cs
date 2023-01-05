@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -76,7 +77,7 @@ public class Player : MonoBehaviour {
                     {
                         if (cardSelected != null && slotSelected != null)
                         {
-                            deleteCanMouveTip();                              
+                            deleteCanMouveTip();
                             cardScript = cardSelected.GetComponent<Card>();
                             slotScript = slotSelected.GetComponent<Slot>();
                             oldSlotScript = cardScript.cardPosition.GetComponent<Slot>();
@@ -194,11 +195,14 @@ public class Player : MonoBehaviour {
     int limit;
     int limit_new;
     int noJumpBoost;
+    int noDiagBoost1;
+    int noDiagBoost2;
     bool canMouve(Slot check=null)
     {
         if (check != null)
             slotScript = check;
         noJumpBoost = -1;
+        noDiagBoost1 = -1; noDiagBoost2 = -1;
 
         cardScript = cardSelected.GetComponent<Card>();
         oldSlotScript = cardScript.cardPosition.GetComponent<Slot>();
@@ -243,7 +247,7 @@ public class Player : MonoBehaviour {
                     if(Mathf.Abs(limit_new-limit)>3)
                         return false;
 
-                    //noJumpBoost position where may be a firewall
+                    //noJumpBoost position where may be a firewall or card
                     if (slotScript.boardCoords == oldSlotScript.boardCoords + 16)
                         noJumpBoost = oldSlotScript.boardCoords + 8;
 
@@ -256,8 +260,38 @@ public class Player : MonoBehaviour {
                     if (slotScript.boardCoords == oldSlotScript.boardCoords - 2)
                         noJumpBoost = oldSlotScript.boardCoords - 1;
 
+                    if (noJumpBoost>=0 && manager.board[noJumpBoost].GetComponent<Slot>().firewallB)
+                        return false;
 
-                    if (noJumpBoost>=0 && (manager.board[noJumpBoost].GetComponent<Slot>().firewallA || manager.board[noJumpBoost].GetComponent<Slot>().firewallB))
+                    if (noJumpBoost >= 0 && manager.board[noJumpBoost].GetComponent<Slot>().placedCard!=null)
+                        return false;
+
+                    //noDiagBoost positions 1 and 2 where may be two cards at the same time
+                    if (slotScript.boardCoords == oldSlotScript.boardCoords + 7)
+                    {
+                        noDiagBoost1 = oldSlotScript.boardCoords + 8; noDiagBoost2 = oldSlotScript.boardCoords - 1;
+                    }
+
+                    if (slotScript.boardCoords == oldSlotScript.boardCoords - 7)
+                    {
+                        noDiagBoost1 = oldSlotScript.boardCoords - 8; noDiagBoost2 = oldSlotScript.boardCoords + 1;
+                    }
+
+                    if (slotScript.boardCoords == oldSlotScript.boardCoords + 9)
+                    {
+                        noDiagBoost1 = oldSlotScript.boardCoords + 8; noDiagBoost2 = oldSlotScript.boardCoords + 1;
+                    }
+
+                    if (slotScript.boardCoords == oldSlotScript.boardCoords - 9)
+                    {
+                        noDiagBoost1 = oldSlotScript.boardCoords - 8; noDiagBoost2 = oldSlotScript.boardCoords - 1;
+                    }
+
+                    if (noDiagBoost1 >= 0 && noDiagBoost2 >= 0 &&
+                            (manager.board[noDiagBoost1].GetComponent<Slot>().placedCard != null ||
+                                            manager.board[noDiagBoost1].GetComponent<Slot>().firewallB) &&
+                            (manager.board[noDiagBoost2].GetComponent<Slot>().placedCard != null ||
+                                            manager.board[noDiagBoost2].GetComponent<Slot>().firewallB))
                         return false;
 
                     if (slotScript.placedCard != null)
@@ -284,12 +318,12 @@ public class Player : MonoBehaviour {
 
     void placeCard()
     {
-        cardScript.Mouve(false, slotScript, null, null);
-        //cardScript.restoreRotation();
-        placedCards++;
-        manager.multiUpdatePlacedPos("-" + slotScript.boardCoords.ToString());
-        cardSelected = null;
-        slotSelected = null;
+            cardScript.Mouve(false, slotScript, null, null);
+            //cardScript.restoreRotation();
+            placedCards++;
+            manager.multiUpdatePlacedPos("-" + slotScript.boardCoords.ToString());
+            cardSelected = null;
+            slotSelected = null;
     }
     void placementRound()
     {
@@ -409,7 +443,7 @@ public class Player : MonoBehaviour {
     {
         for (int i = 7; i > 0; i--)
         {
-            int r = Random.Range(0, i + 1);
+            int r = UnityEngine.Random.Range(0, i + 1);
             GameObject tmp = Cards[i];
             Cards[i] = Cards[r];
             Cards[r] = tmp;
