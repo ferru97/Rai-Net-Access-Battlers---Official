@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour {
     public GameObject[] opponentStackLink = new GameObject[4];
     public GameObject[] opponentStackVirus = new GameObject[4];
     public GameObject menu;
+    public GameObject Blocker;
 
     public int opponentVirusCollected = 0;
     public int opponentLinkCollected = 0;
