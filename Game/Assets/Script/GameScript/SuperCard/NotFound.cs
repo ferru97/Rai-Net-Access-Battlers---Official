@@ -80,14 +80,14 @@ public class NotFound : SuperCard {
 
         GameObject boostObj = null;
         Card boostCard = null;
-        if (c1.boost != null)
+        if (c1.boost != null && s)
         {
             boostObj = c1.boost;
             c1.disableBoost();
             boostCard = c2;
             boostObj.GetComponent<Boost>().card = c2.gameObject;
         }
-        else if(c2.boost != null)
+        else if(c2.boost != null && s)
         {
             boostObj = c2.boost;
             c2.disableBoost();
