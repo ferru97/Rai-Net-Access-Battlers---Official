@@ -19,12 +19,17 @@ public class OptionsMenuNew : MonoBehaviour {
     //MARGHERITA COTTO E PATATINE
 	public void  Start (){
         PlayerPrefs.SetInt("NormalDifficulty",1);
-        PlayerPrefs.SetFloat("MusicVolume", 0.7f);
+        if (!PlayerPrefs.HasKey("EffectVolume"))
+            PlayerPrefs.SetFloat("EffectVolume", 1f);
 
-		// check slider values
-		musicSlider.GetComponent<Slider>().value = PlayerPrefs.GetFloat("MusicVolume");
+        if (!PlayerPrefs.HasKey("MusicVolume"))
+            PlayerPrefs.SetFloat("MusicVolume", 0.7f);
 
-	}
+        // check slider values
+        musicSlider.GetComponent<Slider>().value = PlayerPrefs.GetFloat("MusicVolume");
+        effectSlider.GetComponent<Slider>().value = PlayerPrefs.GetFloat("EffectVolume");
+
+    }
 
 	public void  Update (){
 		sliderValue = musicSlider.GetComponent<Slider>().value;
