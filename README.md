@@ -1,11 +1,13 @@
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/ferru97)
+
 # Rai-Net Access Battlers
-This is the official repository of Rai-Net Access Battlers, the digital version of the famous board game downloadable from [www.rainetdigital.com](currently offline), and available for Android, Windows, and Linux
+This is the official repository of Rai-Net Access Battlers, the digital version of the famous board game downloadable from [www.rainetdigital.com](https://www.rainetdigital.com/), and available for Android, Windows, and Linux
 
 The project is composed of two main part: 
 - The game source code located in *Game/*
 - The multiplayer server located in *Server/*
 
-The game is currently developed using *Unity 2021.3.5f1*
+The game is currently developed using *Unity 2020.3.2f1*
 
 For any information and support join our [Discord Channel](https://discord.com/invite/f22dhpu)!
 
@@ -32,7 +34,6 @@ The client game application and the server must have the same game version other
 
 ## Contributions
 Feel free to contribute to this project!
-(Created by [ferru97](https://github.com/ferru97), currently handled by [Yannodo](https://github.com/Yannodo)
 The main improvements concern:
 
 - Implement an efficient AI for single player
@@ -42,8 +43,7 @@ The main improvements concern:
 Open a PL on the *DEV* branch to propose a change or open an Issue to suggest a change, report a bug, or discuss a feature
 
 ## Donation
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/ferru97)
-If you like this project, think about donating to the original creator! :)
+If you like this project, you can give me a cup of coffee :) 
 
 ## License
 The content of this project itself is licensed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html)
